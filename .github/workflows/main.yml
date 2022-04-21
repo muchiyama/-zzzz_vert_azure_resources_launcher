@@ -22,7 +22,7 @@ jobs:
     steps:
       # Runs a single command using the runners shell
       - name: Run a print action
-        run: run: echo "${{ github.event.action }}"
+        run: echo "${{ github.event.action }}"
 
       - name: Run a print payload
         run: echo "${{ toJSON(github.event.client_payload) }}"
