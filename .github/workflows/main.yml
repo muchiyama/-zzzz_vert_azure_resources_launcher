@@ -24,5 +24,11 @@ jobs:
       - name: Run a print action
         run: echo "${{ github.event.action }}"
 
-      - name: Run a print payload
+      - name: Run a print overall payload
         run: echo "${{ toJSON(github.event.client_payload) }}"
+
+      - name: Run a print payload of key1
+        run: echo "${{ toJSON(github.event.client_payload).key1 }}"
+
+      - name: Run a print payload of key2
+        run: echo "${{ toJSON(github.event.client_payload).key2 }}"
