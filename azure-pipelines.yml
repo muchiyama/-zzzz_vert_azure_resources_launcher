@@ -1,0 +1,22 @@
+# Starter pipeline
+# Start with a minimal pipeline that you can customize to build and deploy your code.
+# Add steps that build, run tests, deploy, and more:
+# https://aka.ms/yaml
+
+trigger:
+- none
+
+parameters:  
+  - name: "sample1"  
+    type: string  
+    displayName: "Sample1"  
+  - name: "sample2"  
+    type: number  
+    default: 0  
+    displayName: "Sample2"  
+
+steps:
+- script: |
+    echo Sample1 Value is: ${{ parameters.sample1 }}
+    echo Sample2 Value is: ${{ parameters.sample2 }}
+  displayName: 'Run show api parameters'
