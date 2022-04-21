@@ -1,6 +1,6 @@
 # This is a basic workflow to help you get started with Actions
 
-name: CI
+name: dispatch
 
 # Controls when the workflow will run
 on: repository_dispatch
@@ -9,20 +9,13 @@ on: repository_dispatch
   #   types: [dispatch]
 
   # Allows you to run this workflow manually from the Actions tab
-  workflow_dispatch:
+  # workflow_dispatch:
 
-# A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
-  # This workflow contains a single job called "build"
-  build:
-    # The type of runner that the job will run on
+  launch:
     runs-on: ubuntu-latest
-
-    # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-      # Runs a single command using the runners shell
-      - name: Run a print action
-        run: echo "${{ github.event.action }}"
-
-      - name: Run a print payload
-        run: echo "${{ toJSON(github.event.client_payload) }}"
+      - name: Event Information
+        run: |
+          echo "Event is '${{ github.event.action }}'" 
+          echo "Message is '${{ github.event.client_payload.message }}'"
